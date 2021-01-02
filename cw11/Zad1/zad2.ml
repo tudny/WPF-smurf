@@ -7,8 +7,6 @@ let exists p li =
 let forall p li =
   not (exists (non p) li);;
 
-
-
 open List;;
 
 type 'a tree =  Node of 'a * 'a tree list;;
