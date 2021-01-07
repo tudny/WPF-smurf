@@ -1,0 +1,5 @@
+"Resource: /home/tudny/WPF/WPF-smurf/cw19/zad4/main.ml": "\t}R\171\007\198\001w_n\146\242\2162p\168"
+"Rule: ocaml: ml & cmi -> cmx & o (%=main )": "\148\011\150\028\149b~\228L\195XM\200\140k\175"
+"Rule: ocaml: ml -> cmo & cmi (%=main )": "\0227\204\214\1396\153\229.\177\245EEn\235\019"
+"Rule: ocaml dependencies ml (%=main )": "Ic\131\251\229\149\149B\000\183\157X\181\233\242\127"
+"Rule: ocaml: cmx* & o* -> native (%=main )": "\215\247o!GL\012\247=\156\255\219\203+A~"
