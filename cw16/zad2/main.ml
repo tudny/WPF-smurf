@@ -1,9 +1,9 @@
 
-let cykl arr = 
+let cykl arr =
   let maks = ref 0 in
   let l = Array.length arr in
   let odw = Array.make l false in
-  let rec dfs v acc = 
+  let rec dfs v acc =
     if odw.(v) = true then acc
     else begin
       odw.(v) <- true;
@@ -17,4 +17,4 @@ let cykl arr =
   cykl [|2; 1; 0; 5; 6; 4; 3; 8; 7|]
 
 
-  
+
