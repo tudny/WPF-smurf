@@ -42,8 +42,8 @@ let wysokosc mapa =
     vis.(n - 1).(m - 1)
   in
 
-  let p = ref 0
-  and k = ref (h - 1) in
+  let p = ref (-1)
+  and k = ref h in
 
   while !k - !p > 1 do
     let mid = (!k + !p) / 2 in 
@@ -81,3 +81,22 @@ let m =
 
 Printf.printf "wys: %d\n" (wysokosc m);;
 (* wys: 7 *)
+
+
+wysokosc
+[|
+    [| 1; 2; 3 |];
+    [| 1; 2; 3 |];
+    [| 1; 1; 1 |];
+    [| 1; 3; 1 |];
+    [| 2; 1; 1 |]
+|];;
+
+wysokosc
+[|
+  [| 2; 1; 1 |];
+  [| 1; 3; 1 |];
+  [| 1; 1; 1 |];
+  [| 1; 2; 3 |];
+  [| 1; 2; 3 |]
+|];;
