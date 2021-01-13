@@ -5,27 +5,27 @@ exception True_exp
 let kwadrat (arr : bool array array) =
   let n = Array.length arr
   and m = Array.length arr.(0)
-  in 
+  in
   let sum_pref =
-    let pref = Array.make_matrix n m 0 in 
+    let pref = Array.make_matrix n m 0 in
     let get x y = try pref.(x).(y) with _ -> 0 in
-    Array.iteri ( fun x row -> 
-        Array.iteri ( fun y el -> 
+    Array.iteri ( fun x row ->
+        Array.iteri ( fun y el ->
             pref.(x).(y) <- (get x (y - 1)) + (get (x - 1) y)
               - (get (x - 1) (y - 1)) + if not el then 1 else 0
           ) row
       ) arr;
     pref
   in
-  let get_sum (x1, y1) (x2, y2) = 
-    let _get (a, b) = try sum_pref.(a).(b) with _ -> 0 in 
-    _get(x2, y2) - _get(x2, y1 - 1) - _get(x1 - 1, y2) + _get(x1 - 1, y1 - 1)
+  let get_sum (x1, y1) (x2, y2) =
+    let _get (a, b) = try sum_pref.(a).(b) with _ -> 0 in
+    sum_pref.(x2).(y2) - _get(x2, y1 - 1) - _get(x1 - 1, y2) + _get(x1 - 1, y1 - 1)
   in
 
   let check k =
     try
-      Array.iteri ( fun x row -> 
-        Array.iteri ( fun y el -> 
+      Array.iteri ( fun x row ->
+        Array.iteri ( fun y el ->
             let sum = try get_sum (x, y) (x + k, y + k) with _ -> 1 in
             if sum = 0 then raise True_exp
           ) row
@@ -41,7 +41,7 @@ let kwadrat (arr : bool array array) =
     let midd = (!p + !k) / 2 in
     if check midd then
       p := midd
-    else 
+    else
       k := midd
   done;
 
@@ -82,18 +82,18 @@ Printf.printf "Wynik: %d\n" kw
 
 exception Wyjatek of int;;
 
-let dziel x y = 
+let dziel x y =
   if y = 0 then raise (Wyjatek x)
   else x / y
 ;;
 
-let wynik x y = 
+let wynik x y =
   match dziel x y with
   | w when w > 0 -> "Dodatnie"
   | w when w < 0 -> "Ujemne"
-  | exception Wyjatek x -> "Błąd! "
+  | exception Wyjatek x -> "Błąd!"
   | _ -> "Powinno być 0"
-   
+
 
 
 
